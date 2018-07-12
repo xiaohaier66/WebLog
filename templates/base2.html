@@ -1,0 +1,35 @@
+<!-- base2.html -->
+<!-- 二级页面窗体 -->
+{% extends 'base.html' %}
+{% block content %}
+	<div class='well'>
+		{% block slogan %}{% endblock %}<!-- 页面标语 -->
+	</div>
+	<div class='row'>
+		<div class='col-sem-4 col-md-4'>
+			<div class='panel panel-default'>
+				<div class='panel-heading'>
+					<h3>
+						MENU
+					</h3>
+				</div>
+				{% block list %}{% endblock %}<!--菜单栏列表-->
+			</div>
+		</div>
+		<div class='col-sm-8 col-md-8'>
+			<div class='panel panel-default'>
+				<div class='panel-heading'>
+					{% block headmessage %}{% endblock %}
+				</div>
+				<div class='panel-body' >
+					{% block panel_content %}{% endblock %}
+				</div>
+				<div class='panel-footer' >
+					<p>
+						End
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

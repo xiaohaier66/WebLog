@@ -1,0 +1,30 @@
+<!-- photo_post.html -->
+{% extends "base.html" %}
+{% block title %}张贴图片{% endblock %}
+{% block content %}
+<div>
+	<div class='panel panel-primary'>
+		<div class='panel-heading'>
+			<form name='my form' action='.' method='POST'>
+			{% csrf_token %}
+			<h3> 张贴图片</h3>
+		</div>
+		{% if message %}
+			<div class='alert alert-warning'>{{ message }}</div>
+			{{ user_name }}<br/>
+			{{ name}}<br/>
+			{{ path }}<br/>
+			{{ description }}<br/>
+			{{ id }}
+		{% endif %}
+		<div class='panel-body'>
+			{{ form.as_p }}
+		</div>
+		<div class='panel-footer'>
+			<input type='submit' value='提交'>
+			<a href='/photo/'><input type='button' value='取消' href='/photo/'></a>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

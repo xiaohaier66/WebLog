@@ -1,0 +1,11 @@
+<!-- friend_detail.html -->
+{% extends 'base2.html' %}
+{% block slogan %}<h1 style="font-family:微软雅黑;">相伴致远</h1>{% endblock %}
+{% block list %}
+	<a href='/friend/' class='list-group-item'>Friend</a>
+	<a href='/friend_post/' class='list-group-item'>添加好友</a>
+{% endblock %}
+{% block headmessage %}<h3 style="font-family:楷体;">{{ friend.name }}</h3>{% endblock %}
+{% block panel_content %}
+	{{ friend.description }}
+{% endblock %}

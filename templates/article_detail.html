@@ -1,0 +1,12 @@
+<!-- article_detail -->
+
+{% extends 'base2.html' %}
+{% block slogan %}<h1 style="font-family:微软雅黑;">文字魅力</h1>{% endblock %}
+{% block list %}
+		<a href='/article/' class='list-group-item'>ARTICLE</a>
+		<a href='/article_post/' class='list-group-item'>发表文章</a>
+{% endblock %}
+{% block headmessage %}<h3 style="font-family:楷体;"> {{ essay.title }} </h3>{% endblock %}
+{% block panel_content %}
+	{{ essay.content }}
+{% endblock %}

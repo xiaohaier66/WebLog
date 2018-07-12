@@ -1,0 +1,30 @@
+<!-- photo.html -->
+{% extends 'base2.html' %}
+{% block slogan %}<h1 style="font-family:微软雅黑;">光影记忆</h1>{% endblock %}
+{% block list %}
+	<a href='/photo/' class='list-group-item'>Photo</a>
+	<a href='/photo_post/' class='list-group-item'>张贴图片</a>
+{% endblock %}
+{% block headmessage %}<h3 style="font-family:楷体;">图片集</h3>{% endblock %}
+{% block panel_content %}
+	<div class='panel panel-default'>
+		{% for photo in photos %}
+			<br>
+			<div class='heading'>
+				<p style='font-family:微软雅黑;font-siez:14pt;font-weight:bold;'>
+				 <a href='/photo/{{ photo.id }}'>{{ photo.description }}</a>
+				</p>	
+			</div>
+			<div class='panel-body' style='background-color:#ffffdd'>
+				<p>
+				  <img src="{{ photo.path }}" width=500 height=300  />
+				</p>
+			</div>
+			<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					张贴时间：{{ photo.time | date:"Y M d, h:m:s"}}
+				</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

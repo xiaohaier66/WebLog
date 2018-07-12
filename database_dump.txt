@@ -1,0 +1,457 @@
+-- MySQL dump 10.13  Distrib 5.5.60, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: PersonalWebLog
+-- ------------------------------------------------------
+-- Server version	5.5.60-0ubuntu0.14.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `auth_group`
+--
+
+DROP TABLE IF EXISTS `auth_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group`
+--
+
+LOCK TABLES `auth_group` WRITE;
+/*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_group_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_group_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` (`group_id`,`permission_id`),
+  KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group_permissions`
+--
+
+LOCK TABLES `auth_group_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_permission`
+--
+
+DROP TABLE IF EXISTS `auth_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `codename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
+  CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_permission`
+--
+
+LOCK TABLES `auth_permission` WRITE;
+/*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
+INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can add group',2,'add_group'),(5,'Can change group',2,'change_group'),(6,'Can delete group',2,'delete_group'),(7,'Can add permission',3,'add_permission'),(8,'Can change permission',3,'change_permission'),(9,'Can delete permission',3,'delete_permission'),(10,'Can add user',4,'add_user'),(11,'Can change user',4,'change_user'),(12,'Can delete user',4,'delete_user'),(13,'Can add content type',5,'add_contenttype'),(14,'Can change content type',5,'change_contenttype'),(15,'Can delete content type',5,'delete_contenttype'),(16,'Can add session',6,'add_session'),(17,'Can change session',6,'change_session'),(18,'Can delete session',6,'delete_session'),(19,'Can add essay',7,'add_essay'),(20,'Can change essay',7,'change_essay'),(21,'Can delete essay',7,'delete_essay'),(22,'Can add friend',8,'add_friend'),(23,'Can change friend',8,'change_friend'),(24,'Can delete friend',8,'delete_friend'),(25,'Can add photo',9,'add_photo'),(26,'Can change photo',9,'change_photo'),(27,'Can delete photo',9,'delete_photo'),(28,'Can add user',10,'add_user'),(29,'Can change user',10,'change_user'),(30,'Can delete user',10,'delete_user'),(31,'Can add auth group',11,'add_authgroup'),(32,'Can change auth group',11,'change_authgroup'),(33,'Can delete auth group',11,'delete_authgroup'),(34,'Can add auth group permissions',12,'add_authgrouppermissions'),(35,'Can change auth group permissions',12,'change_authgrouppermissions'),(36,'Can delete auth group permissions',12,'delete_authgrouppermissions'),(37,'Can add auth permission',13,'add_authpermission'),(38,'Can change auth permission',13,'change_authpermission'),(39,'Can delete auth permission',13,'delete_authpermission'),(40,'Can add auth user',14,'add_authuser'),(41,'Can change auth user',14,'change_authuser'),(42,'Can delete auth user',14,'delete_authuser'),(43,'Can add auth user groups',15,'add_authusergroups'),(44,'Can change auth user groups',15,'change_authusergroups'),(45,'Can delete auth user groups',15,'delete_authusergroups'),(46,'Can add auth user user permissions',16,'add_authuseruserpermissions'),(47,'Can change auth user user permissions',16,'change_authuseruserpermissions'),(48,'Can delete auth user user permissions',16,'delete_authuseruserpermissions'),(49,'Can add django admin log',17,'add_djangoadminlog'),(50,'Can change django admin log',17,'change_djangoadminlog'),(51,'Can delete django admin log',17,'delete_djangoadminlog'),(52,'Can add django content type',18,'add_djangocontenttype'),(53,'Can change django content type',18,'change_djangocontenttype'),(54,'Can delete django content type',18,'delete_djangocontenttype'),(55,'Can add django migrations',19,'add_djangomigrations'),(56,'Can change django migrations',19,'change_djangomigrations'),(57,'Can delete django migrations',19,'delete_djangomigrations'),(58,'Can add django session',20,'add_djangosession'),(59,'Can change django session',20,'change_djangosession'),(60,'Can delete django session',20,'delete_djangosession'),(61,'Can add essay back',21,'add_essayback'),(62,'Can change essay back',21,'change_essayback'),(63,'Can delete essay back',21,'delete_essayback');
+/*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user`
+--
+
+DROP TABLE IF EXISTS `auth_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `password` varchar(128) NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `is_superuser` tinyint(1) NOT NULL,
+  `username` varchar(150) NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `date_joined` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user`
+--
+
+LOCK TABLES `auth_user` WRITE;
+/*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$36000$K8KqVBhXPsI1$b8k4Sk8euIZJm+tWhEMt4yPvD2dqeCjBkjq6e4EAibE=','2018-05-27 01:44:27',1,'root','','','',1,1,'2018-05-26 09:36:50');
+/*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_groups`
+--
+
+DROP TABLE IF EXISTS `auth_user_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_user_groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_groups_user_id_group_id_94350c0c_uniq` (`user_id`,`group_id`),
+  KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`),
+  CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_groups`
+--
+
+LOCK TABLES `auth_user_groups` WRITE;
+/*!40000 ALTER TABLE `auth_user_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_user_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_user_user_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_user_user_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`),
+  KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_user_permissions`
+--
+
+LOCK TABLES `auth_user_user_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_admin_log`
+--
+
+DROP TABLE IF EXISTS `django_admin_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_admin_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `action_time` datetime NOT NULL,
+  `object_id` longtext,
+  `object_repr` varchar(200) NOT NULL,
+  `action_flag` smallint(5) unsigned NOT NULL,
+  `change_message` longtext NOT NULL,
+  `content_type_id` int(11) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`),
+  KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_admin_log`
+--
+
+LOCK TABLES `django_admin_log` WRITE;
+/*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+INSERT INTO `django_admin_log` VALUES (1,'2018-05-26 13:13:18','1','User object',1,'[{\"added\": {}}]',10,1),(2,'2018-05-26 13:14:30','2','User object',1,'[{\"added\": {}}]',10,1),(3,'2018-05-26 13:15:43','2','User object',3,'',10,1),(4,'2018-05-26 13:16:16','1','User object',2,'[{\"changed\": {\"fields\": [\"name\", \"sex\"]}}]',10,1),(5,'2018-05-26 13:17:08','1','User object',2,'[{\"changed\": {\"fields\": [\"name\", \"sex\"]}}]',10,1),(6,'2018-05-26 13:18:23','1','User object',2,'[]',10,1),(7,'2018-05-26 13:18:59','3','User object',1,'[{\"added\": {}}]',10,1),(8,'2018-05-26 13:19:23','4','User object',1,'[{\"added\": {}}]',10,1),(9,'2018-05-26 13:19:57','5','User object',1,'[{\"added\": {}}]',10,1),(10,'2018-05-26 13:20:36','4','User object',3,'',10,1),(11,'2018-05-26 13:20:36','3','User object',3,'',10,1),(12,'2018-05-26 13:20:36','1','User object',3,'',10,1),(13,'2018-05-26 13:22:40','1','Friend object',1,'[{\"added\": {}}]',8,1),(14,'2018-05-26 13:23:28','2','Friend object',1,'[{\"added\": {}}]',8,1),(15,'2018-05-26 13:24:58','3','Friend object',1,'[{\"added\": {}}]',8,1),(16,'2018-05-26 13:27:12','1','Essay object',1,'[{\"added\": {}}]',7,1),(17,'2018-05-26 13:28:13','2','Essay object',1,'[{\"added\": {}}]',7,1),(18,'2018-05-26 13:29:09','3','Essay object',1,'[{\"added\": {}}]',7,1),(19,'2018-05-26 14:41:15','1','Photo object',1,'[{\"added\": {}}]',9,1),(20,'2018-05-26 14:45:27','1','Photo object',2,'[{\"changed\": {\"fields\": [\"path\"]}}]',9,1),(21,'2018-05-26 14:47:58','1','Photo object',2,'[{\"changed\": {\"fields\": [\"path\"]}}]',9,1),(22,'2018-05-26 14:58:29','2','Photo object',1,'[{\"added\": {}}]',9,1),(23,'2018-05-26 15:00:05','3','Photo object',1,'[{\"added\": {}}]',9,1),(24,'2018-05-27 01:45:36','1','EssayBack object',1,'[{\"added\": {}}]',21,1),(25,'2018-05-27 01:46:06','2','EssayBack object',1,'[{\"added\": {}}]',21,1),(26,'2018-05-27 01:46:38','2','EssayBack object',2,'[{\"changed\": {\"fields\": [\"content\"]}}]',21,1),(27,'2018-05-27 01:47:29','3','EssayBack object',1,'[{\"added\": {}}]',21,1),(28,'2018-05-27 02:06:31','4','Essay object',1,'[{\"added\": {}}]',7,1),(29,'2018-05-27 02:06:34','4','EssayBack object',1,'[{\"added\": {}}]',21,1),(30,'2018-05-27 04:11:47','1','User object',1,'[{\"added\": {}}]',10,1),(31,'2018-05-27 04:11:58','1','User object',2,'[]',10,1),(32,'2018-05-27 04:15:36','1','Friend object',1,'[{\"added\": {}}]',8,1),(33,'2018-05-27 04:16:23','2','Friend object',1,'[{\"added\": {}}]',8,1),(34,'2018-05-27 04:17:54','3','Friend object',1,'[{\"added\": {}}]',8,1),(35,'2018-05-27 04:19:09','4','Friend object',1,'[{\"added\": {}}]',8,1),(36,'2018-05-27 04:21:16','1','EssayBack object',1,'[{\"added\": {}}]',21,1),(37,'2018-05-27 04:21:32','2','EssayBack object',1,'[{\"added\": {}}]',21,1),(38,'2018-05-27 04:22:02','3','EssayBack object',1,'[{\"added\": {}}]',21,1),(39,'2018-05-27 04:23:07','1','Essay object',1,'[{\"added\": {}}]',7,1),(40,'2018-05-27 04:23:33','2','Essay object',1,'[{\"added\": {}}]',7,1),(41,'2018-05-27 04:23:57','3','Essay object',1,'[{\"added\": {}}]',7,1),(42,'2018-05-27 04:24:22','4','Essay object',1,'[{\"added\": {}}]',7,1),(43,'2018-05-27 04:26:15','1','Photo object',1,'[{\"added\": {}}]',9,1),(44,'2018-05-27 04:27:48','2','Photo object',1,'[{\"added\": {}}]',9,1),(45,'2018-05-27 04:29:02','3','Photo object',1,'[{\"added\": {}}]',9,1),(46,'2018-05-27 06:32:11','xiaohaier66','User object',1,'[{\"added\": {}}]',10,1),(47,'2018-05-27 06:35:17','?????','Photo object',1,'[{\"added\": {}}]',9,1),(48,'2018-05-27 06:37:20','????','Photo object',1,'[{\"added\": {}}]',9,1),(49,'2018-05-27 06:38:49','?????','Photo object',1,'[{\"added\": {}}]',9,1),(50,'2018-05-27 06:39:49','??????','Photo object',1,'[{\"added\": {}}]',9,1),(51,'2018-05-27 06:42:33','???','Friend object',1,'[{\"added\": {}}]',8,1),(52,'2018-05-27 06:43:02','???','Friend object',2,'[{\"changed\": {\"fields\": [\"sex\"]}}]',8,1),(53,'2018-05-27 06:43:08','???','Friend object',2,'[]',8,1),(54,'2018-05-27 06:43:58','??','Friend object',1,'[{\"added\": {}}]',8,1),(55,'2018-05-27 06:45:22','???','Friend object',1,'[{\"added\": {}}]',8,1),(56,'2018-05-27 06:46:23','???','Essay object',1,'[{\"added\": {}}]',7,1),(57,'2018-05-27 06:47:02','??','Essay object',1,'[{\"added\": {}}]',7,1),(58,'2018-05-27 06:47:45','??','Essay object',1,'[{\"added\": {}}]',7,1),(59,'2018-05-27 06:48:30','??','EssayBack object',1,'[{\"added\": {}}]',21,1),(60,'2018-05-27 06:49:51','???','EssayBack object',1,'[{\"added\": {}}]',21,1),(61,'2018-05-27 06:51:04','???','EssayBack object',1,'[{\"added\": {}}]',21,1),(62,'2018-05-27 07:12:19','?????','Photo object',2,'[{\"changed\": {\"fields\": [\"time\"]}}]',9,1),(63,'2018-05-27 07:12:27','????','Photo object',2,'[{\"changed\": {\"fields\": [\"time\"]}}]',9,1);
+/*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_content_type`
+--
+
+DROP TABLE IF EXISTS `django_content_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_content_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `app_label` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_content_type`
+--
+
+LOCK TABLES `django_content_type` WRITE;
+/*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
+INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(2,'auth','group'),(3,'auth','permission'),(4,'auth','user'),(5,'contenttypes','contenttype'),(11,'mysite','authgroup'),(12,'mysite','authgrouppermissions'),(13,'mysite','authpermission'),(14,'mysite','authuser'),(15,'mysite','authusergroups'),(16,'mysite','authuseruserpermissions'),(17,'mysite','djangoadminlog'),(18,'mysite','djangocontenttype'),(19,'mysite','djangomigrations'),(20,'mysite','djangosession'),(7,'mysite','essay'),(21,'mysite','essayback'),(8,'mysite','friend'),(9,'mysite','photo'),(10,'mysite','user'),(6,'sessions','session');
+/*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_migrations`
+--
+
+DROP TABLE IF EXISTS `django_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_migrations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `app` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `applied` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_migrations`
+--
+
+LOCK TABLES `django_migrations` WRITE;
+/*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2018-05-26 09:33:18'),(2,'auth','0001_initial','2018-05-26 09:33:19'),(3,'admin','0001_initial','2018-05-26 09:33:19'),(4,'admin','0002_logentry_remove_auto_add','2018-05-26 09:33:19'),(5,'contenttypes','0002_remove_content_type_name','2018-05-26 09:33:19'),(6,'auth','0002_alter_permission_name_max_length','2018-05-26 09:33:19'),(7,'auth','0003_alter_user_email_max_length','2018-05-26 09:33:19'),(8,'auth','0004_alter_user_username_opts','2018-05-26 09:33:19'),(9,'auth','0005_alter_user_last_login_null','2018-05-26 09:33:19'),(10,'auth','0006_require_contenttypes_0002','2018-05-26 09:33:19'),(11,'auth','0007_alter_validators_add_error_messages','2018-05-26 09:33:19'),(12,'auth','0008_alter_user_username_max_length','2018-05-26 09:33:19'),(13,'mysite','0001_initial','2018-05-26 09:33:19'),(14,'mysite','0002_auto_20180526_0850','2018-05-26 09:33:19'),(15,'sessions','0001_initial','2018-05-26 09:33:20'),(16,'mysite','0003_essay_friend_photo_user','2018-05-26 10:43:11'),(17,'mysite','0004_authgroup_authgrouppermissions_authpermission_authuser_authusergroups_authuseruserpermissions_django','2018-05-26 12:00:01'),(18,'mysite','0005_essayback','2018-05-26 12:23:08');
+/*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_expire_date_a5c62663` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` VALUES ('lrt3ogsgioaqfl0pqjzrsvwe2oo6uaby','ZDdkOWY3N2IwOWVkY2E3MDJjOTM5MWZlMTBmMmVkNTc0YTMyYTA4Zjp7Il9hdXRoX3VzZXJfaGFzaCI6ImU2ZmEyOGNkY2JlMzc4N2QzNzExNzJkZTI1MzJlMzI2NjI5ZmVmYWMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2018-06-10 01:44:27'),('q0nm9g68klseapbwu5uak1od6fmsz0fw','ZDdkOWY3N2IwOWVkY2E3MDJjOTM5MWZlMTBmMmVkNTc0YTMyYTA4Zjp7Il9hdXRoX3VzZXJfaGFzaCI6ImU2ZmEyOGNkY2JlMzc4N2QzNzExNzJkZTI1MzJlMzI2NjI5ZmVmYWMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2018-06-09 10:54:26');
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `essay`
+--
+
+DROP TABLE IF EXISTS `essay`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `essay` (
+  `title` varchar(45) CHARACTER SET utf8 NOT NULL COMMENT '文章题目',
+  `user_name` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `essay_type` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `content` text CHARACTER SET utf8 NOT NULL COMMENT '文章内容',
+  `time` datetime DEFAULT NULL COMMENT '文章表时间',
+  `count` int(11) DEFAULT NULL COMMENT '文章访问次数',
+  PRIMARY KEY (`title`,`user_name`),
+  KEY `fk_essay_user1_idx` (`user_name`),
+  CONSTRAINT `fk_essay_user1` FOREIGN KEY (`user_name`) REFERENCES `user` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='文章';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `essay`
+--
+
+LOCK TABLES `essay` WRITE;
+/*!40000 ALTER TABLE `essay` DISABLE KEYS */;
+INSERT INTO `essay` VALUES ('中国','xiaohaier66','国家','中国位于东亚，是以华夏文明为主体、中华文化为基础，以汉族为主要民族的统一多民族国家，通用汉语。中国人一般称呼自己为龙的传人、炎黄子孙或中华民族。 中国是世... 详情>>\r\n词语释义 - 历史变迁 - 地理地貌 - 全部 - 其他含义>>','2018-05-27 06:46:58',NULL),('红楼梦','xiaohaier66','小说随笔','编剧潘藩虽然筹备拍摄此片已久，但在编剧方面缺少创新，与大陆越剧《红楼梦》内容一样。因此，虽然导演手法细腻，布景服饰豪华，演员也极为卖力，却未能制造出感人... 详情>>','2018-05-27 06:46:14',NULL),('闹钟','xiaohaier66','百科','闹钟是带有闹时装置的钟。既能指示时间，又能按人们预定的时刻发出音响信号或其他信号。闹钟的机芯结构主要有机械式和石英电子式两大类。其他如晶体管摆轮... 详情>>','2018-05-27 06:47:38',NULL);
+/*!40000 ALTER TABLE `essay` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `essay_back`
+--
+
+DROP TABLE IF EXISTS `essay_back`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `essay_back` (
+  `friend_name` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `essay_title` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `content` text CHARACTER SET utf8 NOT NULL COMMENT '文章回复内容',
+  `time` datetime DEFAULT NULL COMMENT '文章回复时间',
+  PRIMARY KEY (`friend_name`,`essay_title`),
+  KEY `fk_essay_back_essay1_idx` (`essay_title`),
+  CONSTRAINT `fk_essay_back_friend1` FOREIGN KEY (`friend_name`) REFERENCES `friend` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_essay_back_essay1` FOREIGN KEY (`essay_title`) REFERENCES `essay` (`title`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='文章回复';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `essay_back`
+--
+
+LOCK TABLES `essay_back` WRITE;
+/*!40000 ALTER TABLE `essay_back` DISABLE KEYS */;
+INSERT INTO `essay_back` VALUES ('曹格','中国','我是林心如','2018-05-27 06:48:26'),('曹雪芹','红楼梦','我是曹格','2018-05-27 06:48:44'),('林心如','闹钟','我是林心如','2018-05-27 06:50:05');
+/*!40000 ALTER TABLE `essay_back` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `friend`
+--
+
+DROP TABLE IF EXISTS `friend`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `friend` (
+  `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '好友姓名',
+  `user_name` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `discription` text CHARACTER SET utf8 COMMENT '好友描述',
+  `sex` enum('男','女','保密') CHARACTER SET utf8 NOT NULL,
+  `address` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `email` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `hobby` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `star` varchar(45) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
+  PRIMARY KEY (`name`,`user_name`),
+  KEY `fk_friend_user1_idx` (`user_name`),
+  CONSTRAINT `fk_friend_user1` FOREIGN KEY (`user_name`) REFERENCES `user` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='好友\n\n\n';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `friend`
+--
+
+LOCK TABLES `friend` WRITE;
+/*!40000 ALTER TABLE `friend` DISABLE KEYS */;
+INSERT INTO `friend` VALUES ('曹格','xiaohaier66','曹格，本名曹佰豪，客家人，祖籍广东，1979年7月9日出生于马来西亚沙巴州古打毛律，马来西亚华语流行音乐创作歌手。2006年推出首张个人创作专辑《格格Blue》。','男',NULL,NULL,'唱歌',NULL),('曹雪芹','xiaohaier66','曹雪芹(约1715年5月28日-约1763年2月12日) ，名沾，字梦阮，号雪芹，又号芹溪、芹圃，中国古典名著《红楼梦》作者，关外祖籍辽宁铁岭，生于江宁(今南京)，... 详情>>','男',NULL,NULL,'写文章',NULL),('林心如','xiaohaier66','林心如，1976年1月27日出生于台湾台北，中国台湾女演员、影视制作人。1993年以兼职广告模特开始了演艺生涯；1994年因与郭富城合拍广告踏入演艺圈；1998年主演电视剧《还珠格格》“夏紫薇”一角走红，之后主演的电... 详情>>','女',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `friend` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `photo`
+--
+
+DROP TABLE IF EXISTS `photo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `photo` (
+  `name` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `user_name` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `path` varchar(45) CHARACTER SET utf8 NOT NULL COMMENT '相册存放路径',
+  `description` text CHARACTER SET utf8 COMMENT '相册描述',
+  `time` datetime DEFAULT NULL,
+  PRIMARY KEY (`name`,`user_name`),
+  KEY `fk_photo_user1_idx` (`user_name`),
+  CONSTRAINT `fk_photo_user1` FOREIGN KEY (`user_name`) REFERENCES `user` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='相册';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `photo`
+--
+
+LOCK TABLES `photo` WRITE;
+/*!40000 ALTER TABLE `photo` DISABLE KEYS */;
+INSERT INTO `photo` VALUES ('俯瞰岩浆流动','xiaohaier66','https://i.imgur.com/sOAelI0.jpg','大自然太神奇了',NULL),('匠心理线','xiaohaier66','https://i.imgur.com/hE0sRw5.jpg','太厉害了，密集恐惧症者慎入','2018-05-27 07:12:23'),('可爱私家车','xiaohaier66','https://i.imgur.com/QYt6lhN.png','设计师是个天才','2018-05-27 07:12:13'),('超级赛亚人','xiaohaier66','https://i.imgur.com/j3VbaX5.gif','赛亚人又要发威了',NULL);
+/*!40000 ALTER TABLE `photo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `name` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `level` enum('root','user','guest') CHARACTER SET utf8 NOT NULL COMMENT '管理级别',
+  `sex` enum('男','女','保密') CHARACTER SET utf8 NOT NULL COMMENT '性别',
+  `password` varchar(16) CHARACTER SET utf8 NOT NULL COMMENT '密码',
+  `email` varchar(45) CHARACTER SET utf8 DEFAULT NULL COMMENT '邮箱',
+  `address` varchar(45) CHARACTER SET utf8 DEFAULT NULL COMMENT '住址',
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='用户';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES ('xiaohaier66','root','保密','123456',NULL,NULL);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-05-27  2:38:52

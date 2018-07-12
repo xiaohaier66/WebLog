@@ -1,0 +1,30 @@
+<!-- article_post.html -->
+{% extends "base.html" %}
+{% block title %}发表文章{% endblock %}
+{% block content %}
+<div>
+	<div class='panel panel-primary'>
+		<div class='panel-heading'>
+			<form name='my form' action='.' method='POST'>
+			{% csrf_token %}
+			<h3> 发表文章</h3>
+		</div>
+		{% if message %}
+			<div class='alert alert-warning'>{{ message }}</div>
+			{{ title }}<br/>
+			{{ user_name}}<br/>
+			{{ essay_type }}<br/>
+			{{ content }}<br/>
+			{{ id }}
+		{% endif %}
+		<div class='panel-body'>
+			{{ form.as_p }}
+		</div>
+		<div class='panel-footer'>
+			<input type='submit' value='提交'>
+			<a href='/article/'><input type='button' value='取消' href='/article/'></a>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!-- index.html -->
+{% extends "base.html" %}
+{% block title %}我有话要说{% endblock %}
+{% block content %}
+<div >
+	<div class='row'>
+		<div class='col-md-12'>
+			<div class='panel panel-default' align=center>
+				<h3>~~你好，有人回复你的文章啦~~</h3>
+			</div>
+		</div>
+	</div>
+	{% for p in essaybacks %}
+		{% cycle "<div class='row'> <div class='col-md-4'>" "<div class='col-md-4'>" "<div class='col-md-4'>" %}
+		<div class='panel panel-primary'>
+			<div class='panel-heading'>【{{ p.friend_name.name }}】回复了《{{ p.essay_title.title }}》</div>
+			<div class='panel-body' style="height:150px;">{{ p.content | linebreaks |  truncatechars:100 }}</div>
+			<div class='panel-footer' align='right'><i><small>{{ p.time }}
+			</small></i></div>
+		</div>
+	</div>
+		{% cycle "" "" "</div>" %}
+	{% endfor %}
+</div>
+{% endblock %}

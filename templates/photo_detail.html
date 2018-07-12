@@ -1,0 +1,11 @@
+<!-- photo_detail.html -->
+{% extends 'base2.html' %}
+{% block slogan %}<h1 style="font-family:微软雅黑;">光影记忆</h1>{% endblock %}
+{% block list %}
+	<a href='/photo/' class='list-group-item'>Photo</a>
+	<a href='/photo_post/' class='list-group-item'>张贴图片</a>
+{% endblock %}
+{% block headmessage %}<h3 style="font-family:楷体;">{{ photo.name }}</h3>{% endblock %}
+{% block panel_content %}
+	{{ photo.description }}
+{% endblock %}

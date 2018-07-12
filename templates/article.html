@@ -1,0 +1,32 @@
+<!-- article.html -->
+{% extends 'base2.html' %}
+{% block slogan %}<h1 style="font-family:微软雅黑;">文字魅力</h1>{% endblock %}
+{% block list %}
+		<a href='/article/' class='list-group-item'>ARTICLE</a>
+		<a href='/article_post/' class='list-group-item'>发表文章</a>
+{% endblock %}
+{% block headmessage %}<h3 style="font-family:楷体;">文章列表</h3>{% endblock %}
+{% block panel_content %}
+	<div class='panel panel-default'>
+		{% for article in articles %}
+			<br>
+			<div class='heading'>
+				<p style='font-family:微软雅黑;font-siez:14pt;font-weight:bold;'>
+				  <a href='/article/{{ article.id }}'>{{ article.title }}</a>
+				</p>	
+			</div>
+			<div class='panel-body' style='background-color:#ffffdd'>
+				<p>
+				  {{ article.content | truncatechars:40 }}
+				</p>
+			</div>
+			<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					发表时间：{{ article.time | date:"Y M d, h:m:s"}}
+				</p>
+			</div>
+		{% endfor %}
+	</div>
+		
+
+{% endblock %}

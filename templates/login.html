@@ -1,0 +1,22 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset='utf-8'>
+  <title></title>
+ <style>
+ h1, h2, h3, h4, h5, p, div{
+	font-family:微软雅黑；
+}
+ </style>
+ </head>
+ <body>
+		<h3>MiNiWebLog</h3>
+		<form action='.' method='POST'>
+			<table>
+				{{ login_form.as_table }}
+			</table>
+			<input type='submit' value='登录'><br/>
+		</form>
+ </body>
+</html>
