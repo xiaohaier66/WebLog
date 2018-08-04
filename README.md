@@ -3,9 +3,11 @@ WebLog
 Brief introduction :
 -
   Very small and simple.It's the first time that I use python to complete a simple project.
+  
 Initial operating environment: 
 -
   ubuntu.
+  
 How to use
 -
   (1)Create a Python Django development environment in a linux machine.
