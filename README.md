@@ -1,10 +1,10 @@
 WebLog
 =
-1. ·Brief introduction· :
+1. `Brief introduction` :
   Very small and simple.It's the first time that I use python to complete a simple project.
-2. Initial operating environment : 
+2. `Initial operating environment` : 
   ubuntu.
-3. How to use : 
+3.` How to use `: 
   (1)Create a Python Django development environment in a linux machine.
   Command:
     sudo apt-get update
