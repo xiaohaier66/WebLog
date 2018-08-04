@@ -1,6 +1,7 @@
 WebLog
 =
-1. `Brief introduction` :
+1. Brief introduction :
+-
   Very small and simple.It's the first time that I use python to complete a simple project.
 2. `Initial operating environment` : 
   ubuntu.
