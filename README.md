@@ -31,11 +31,13 @@ How to use
     python manage.py runserver [the ip address of your linux machine ]:8000
   (5)Access the server using a browser
     Enter "https://[the ip address of your linux machine]:8000" into the browser's address bar.
+    
 Notice:
 -
   This project is so simple that it cannot be used in practical situations.It is intended for use in python web development primitives.
   And the code needs to be modified and debugged to run properly.
       Now, I share it and hope to learn and improve with you.
+      
 Reference:
 -
   《Django 架站的16堂课》 何敏煌 著
