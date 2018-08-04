@@ -28,7 +28,7 @@ How to use
     
   (3)Set up a database
   
- >> I use the database server named mysql.
+  I use the database server named mysql.
   You need to creat a database based on the file named admin.
   
   (4)Start the server running
@@ -45,9 +45,9 @@ How to use
     
 Notice
 -
->>This project is so simple that it cannot be used in practical situations.It is intended for use in python web development primitives.
->>And the code needs to be modified and debugged to run properly.
->>Now, I share it and hope to learn and improve with you.
+  This project is so simple that it cannot be used in practical situations.It is intended for use in python web development primitives.
+  And the code needs to be modified and debugged to run properly.
+  Now, I share it and hope to learn and improve with you.
       
 Reference
 -
