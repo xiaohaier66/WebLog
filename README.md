@@ -1,11 +1,13 @@
 WebLog
 =
-1. Brief introduction :
+Brief introduction :
 -
   Very small and simple.It's the first time that I use python to complete a simple project.
-2. `Initial operating environment` : 
+Initial operating environment: 
+-
   ubuntu.
-3.` How to use `: 
+How to use
+-
   (1)Create a Python Django development environment in a linux machine.
   Command:
     sudo apt-get update
@@ -27,9 +29,11 @@ WebLog
     python manage.py runserver [the ip address of your linux machine ]:8000
   (5)Access the server using a browser
     Enter "https://[the ip address of your linux machine]:8000" into the browser's address bar.
-4. Notice:
-      This project is so simple that it cannot be used in practical situations.It is intended for use in python web development primitives.
+Notice:
+-
+  This project is so simple that it cannot be used in practical situations.It is intended for use in python web development primitives.
   And the code needs to be modified and debugged to run properly.
       Now, I share it and hope to learn and improve with you.
-5. Reference:
+Reference:
+-
   《Django 架站的16堂课》 何敏煌 著
