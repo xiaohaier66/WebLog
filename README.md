@@ -13,6 +13,7 @@ How to use
   (1)Create a Python Django development environment in a linux machine.
   
   Command:
+  
     sudo apt-get update
     usdo apt-get -y upgrade
     sudo apt-get -y install python-pip
@@ -21,6 +22,7 @@ How to use
   (2)Reinstall(or update) the used suite on your local computer.
   
   Command:
+  
     cd webLog
     pip install -r 'requirements.txt'
     
@@ -32,6 +34,7 @@ How to use
   (4)Start the server running
   
    Command:
+   
     source VENB/bin/activate
     cd webLog
     python manage.py runserver [the ip address of your linux machine ]:8000
