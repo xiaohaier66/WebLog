@@ -18,7 +18,7 @@ easy-thumbnails==2.5
 field==0.2.0
 fields==5.0.0
 idna==2.6
-markdown2==2.3.5
+markdown2==2.4.0
 MySQL-python==1.2.5
 oauthlib==2.0.7
 Pillow==5.1.0
